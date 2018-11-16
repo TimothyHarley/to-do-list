@@ -1,0 +1,47 @@
+{
+	"tasks": [{
+		"id": "task1",
+		"task": "Walk the dog",
+		"isCompleted": true
+	}, {
+		"id": "task2",
+		"task": "Wash the dishes",
+		"isCompleted": true
+	}, {
+		"id": "task3",
+		"task": "Change the car's oil",
+		"isCompleted": false
+	}, {
+		"id": "task4",
+		"task": "Study",
+		"isCompleted": false
+	}, {
+		"id": "task5",
+		"task": "Prepare food for tomorrow",
+		"isCompleted": true
+	}, {
+		"id": "task6",
+		"task": "Finish the laundry",
+		"isCompleted": false
+	}, {
+		"id": "task7",
+		"task": "Vacuum the floors",
+		"isCompleted": true
+	}, {
+		"id": "task8",
+		"task": "Renew license plate",
+		"isCompleted": false
+	}, {
+		"id": "task9",
+		"task": "Find health insurance for next year",
+		"isCompleted": false
+	}, {
+		"id": "task10",
+		"task": "Take the garbage and recycling out",
+		"isCompleted": true
+	}, {
+		"id": "task11",
+		"task": "Christmas shopping",
+		"isCompleted": false
+	}]
+}

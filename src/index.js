@@ -1,5 +1,10 @@
-import $ from 'jquery';
+// import $ from 'jquery';
 import 'bootstrap';
 import './index.scss';
+import loadNavbar from './components/navbar/navbar';
 
-$('#hello').html('Hello World');
+const initApp = () => {
+  loadNavbar();
+};
+
+initApp();

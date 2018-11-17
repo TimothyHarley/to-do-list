@@ -8,16 +8,18 @@ const checkLoginStatus = () => {
       $('#tasks').show();
       $('#done').hide();
       $('#auth').hide();
+      $('#user').hide();
       $('#navbar-button-tasks').show();
       $('#navbar-button-done').show();
-      $('#navbar-button-logout').show();
+      $('#navbar-button-user').show();
     } else {
       $('#tasks').hide();
       $('#done').hide();
       $('#auth').show();
+      $('#user').hide();
       $('#navbar-button-tasks').hide();
       $('#navbar-button-done').hide();
-      $('#navbar-button-logout').hide();
+      $('#navbar-button-user').hide();
     }
   });
 };

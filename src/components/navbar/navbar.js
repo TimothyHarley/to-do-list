@@ -1,5 +1,30 @@
 import $ from 'jquery';
 import './navbar.scss';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+
+const navbarEvents = () => {
+  $('.nav-link').on('click', (e) => {
+    if (e.target.id === 'navbar-button-logout') {
+      firebase.auth().signOut().then(() => {
+      }).catch((err) => {
+        console.error('you are still logged in', err);
+      });
+    } else if (e.target.id === 'navbar-button-tasks') {
+      $('#auth').hide();
+      $('#tasks').show();
+      $('#done').hide();
+    } else if (e.target.id === 'navbar-button-done') {
+      $('#auth').hide();
+      $('#tasks').hide();
+      $('#done').show();
+    } else {
+      $('#auth').show();
+      $('#tasks').hide();
+      $('#done').hide();
+    }
+  });
+};
 
 const loadNavbar = () => {
   const newString = `
@@ -11,13 +36,10 @@ const loadNavbar = () => {
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a id="navbar-button-auth" class="nav-link" href="#">Authentication</a>
-      </li>
-      <li class="nav-item">
         <a id="navbar-button-tasks" class="nav-link" href="#">Tasks</a>
       </li>
       <li class="nav-item">
-        <a id="navbar-button-completed" class="nav-link" href="#">Completed Tasks</a>
+        <a id="navbar-button-done" class="nav-link" href="#">Finished Tasks</a>
       </li>
       <li class="nav-item">
         <a id="navbar-button-logout" class="nav-link" href="#">Logout</a>
@@ -27,6 +49,7 @@ const loadNavbar = () => {
 </nav>
   `;
   $('#navbar').html(newString);
+  navbarEvents();
 };
 
 export default loadNavbar;

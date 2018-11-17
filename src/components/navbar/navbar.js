@@ -3,30 +3,43 @@ import './navbar.scss';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
+const nameCheck = () => {
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      const userName = user.displayName;
+      $('#navbar-button-user').html(userName);
+    }
+  });
+};
+
 const navbarEvents = () => {
   $('.nav-link').on('click', (e) => {
-    if (e.target.id === 'navbar-button-logout') {
-      firebase.auth().signOut().then(() => {
-      }).catch((err) => {
-        console.error('you are still logged in', err);
-      });
-    } else if (e.target.id === 'navbar-button-tasks') {
+    if (e.target.id === 'navbar-button-tasks') {
       $('#auth').hide();
       $('#tasks').show();
       $('#done').hide();
+      $('#user').hide();
     } else if (e.target.id === 'navbar-button-done') {
       $('#auth').hide();
       $('#tasks').hide();
       $('#done').show();
+      $('#user').hide();
+    } else if (e.target.id === 'navbar-button-user') {
+      $('#auth').hide();
+      $('#tasks').hide();
+      $('#done').hide();
+      $('#user').show();
     } else {
       $('#auth').show();
       $('#tasks').hide();
       $('#done').hide();
+      $('#user').hide();
     }
   });
 };
 
 const loadNavbar = () => {
+  nameCheck();
   const newString = `
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">To Do List</a>
@@ -42,7 +55,7 @@ const loadNavbar = () => {
         <a id="navbar-button-done" class="nav-link" href="#">Finished Tasks</a>
       </li>
       <li class="nav-item">
-        <a id="navbar-button-logout" class="nav-link" href="#">Logout</a>
+        <a id="navbar-button-user" class="nav-link" href="#"></a>
       </li>
     </ul>
   </div>

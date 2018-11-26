@@ -3,8 +3,8 @@ import apiKeys from '../../db/apiKeys.json';
 
 const firebaseUrl = apiKeys.firebaseKeys.databaseURL;
 
-const getTasks = uid => new Promise((resolve, reject) => {
-  axios.get(`${firebaseUrl}/tasks.json?orderBy="uid"&equalTo="${uid}`)
+const getTasks = () => new Promise((resolve, reject) => {
+  axios.get(`${firebaseUrl}/tasks.json`)
     .then((results) => {
       const tasksObject = results.data;
       const taskArray = [];
@@ -21,4 +21,4 @@ const getTasks = uid => new Promise((resolve, reject) => {
     });
 });
 
-export default getTasks;
+export default { getTasks };

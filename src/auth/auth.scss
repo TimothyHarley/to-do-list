@@ -1,5 +1,10 @@
 #google-auth {
     margin-top: 100px;
-    max-width: 300px;
-    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    color: gray;
+    img {
+        max-width: 40px;
+        margin-right: 5px;
+        margin-top: 2px;
+    }
 }

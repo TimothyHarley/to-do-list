@@ -7,7 +7,9 @@ import './auth.scss';
 
 const loginButton = () => {
   const domString = `
-    <img id='google-auth' src='${googleImg}'/>
+    <button id='google-auth' class="btn btn-lg">
+      <img src='${googleImg}'/> Sign in with Google
+    </button>
   `;
   $('#auth').html(domString);
   $('#google-auth').on('click', () => {

@@ -1,5 +1,7 @@
+import $ from 'jquery';
 import tasksPage from './tasksPage';
 import tasksData from '../../helpers/tasksData';
+
 
 const gettingTaskFromForm = () => {
   const task = {
@@ -10,7 +12,6 @@ const gettingTaskFromForm = () => {
 
 const addNewTask = () => {
   const newTask = gettingTaskFromForm();
-  console.log(newTask);
   tasksData.addNewTask(newTask)
     .then(() => {
       tasksPage.initializeTasksPage();
@@ -21,3 +22,4 @@ const addNewTask = () => {
 };
 
 $('body').on('click', '.addTask', addNewTask);
+

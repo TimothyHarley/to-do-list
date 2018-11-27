@@ -21,4 +21,6 @@ const getTasks = () => new Promise((resolve, reject) => {
     });
 });
 
-export default { getTasks };
+const addNewTask = taskObject => axios.post(`${firebaseUrl}/tasks.json`, JSON.stringify(taskObject));
+
+export default { getTasks, addNewTask };

@@ -35,4 +35,4 @@ const initializeTasksPage = () => {
   tasksPage();
 };
 
-export default initializeTasksPage;
+export default { initializeTasksPage };

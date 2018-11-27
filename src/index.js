@@ -6,13 +6,13 @@ import loadNavbar from './components/navbar/navbar';
 import loginButton from './auth/auth';
 import navHelpers from './helpers/navHelpers';
 import userDiv from './user/user';
-import initializeTasksPage from './components/TasksPage/tasksPage';
+import tasksPage from './components/TasksPage/tasksPage';
 
 const initApp = () => {
   firebase.initializeApp(apiKeys.firebaseKeys);
   loadNavbar();
   loginButton();
-  navHelpers.checkLoginStatus(initializeTasksPage);
+  navHelpers.checkLoginStatus(tasksPage.initializeTasksPage);
   userDiv();
 };
 

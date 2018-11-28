@@ -21,5 +21,4 @@ const addNewTask = () => {
     });
 };
 
-$('body').on('click', '.addTask', addNewTask);
-
+export default addNewTask;

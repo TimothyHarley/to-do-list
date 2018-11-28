@@ -1,11 +1,14 @@
 import $ from 'jquery';
 import tasksPage from './tasksPage';
 import tasksData from '../../helpers/tasksData';
+import authHelpers from '../../helpers/navHelpers';
 
 
 const gettingTaskFromForm = () => {
   const task = {
     task: $('#newTaskToAdd').val(),
+    isCompleted: false,
+    uid: authHelpers.getCurrentUid(),
   };
   return task;
 };

@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,11 +7,20 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:500" rel="stylesheet">
     <title>To Do List</title>
 </head>
+
 <body class="text-center">
     <div id="navbar"></div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <button class="btn btn-outline-secondary addTask" type="button" id="button-addon1">Add Task</button>
+        </div>
+        <input type="text" class="form-control" id="newTaskToAdd" placeholder="What do you need to to today?" aria-label="Example text with button addon"
+            aria-describedby="button-addon1">
+    </div>
     <div id="auth"></div>
     <div id="tasks">tasks</div>
     <div id="done">done</div>
     <div id="user"></div>
 </body>
+
 </html>

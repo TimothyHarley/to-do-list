@@ -21,7 +21,6 @@ const getTasks = uid => new Promise((resolve, reject) => {
     });
 });
 
-
 const addNewTask = taskObject => axios.post(`${firebaseUrl}/tasks.json`, JSON.stringify(taskObject));
 
 const updateDone = (taskId, isCompleted) => axios.patch(`${firebaseUrl}/tasks/${taskId}.json`, { isCompleted });

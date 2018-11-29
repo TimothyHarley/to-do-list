@@ -14,6 +14,9 @@ const printTasks = (taskArray) => {
               <input class="form-check-input is-completed-checkbox" type="checkbox" id="${task.id}">
               <label class="form-check-label" for="inlineCheckbox1">Done</label>
             </div>
+            <div>
+              <button class="btn btn-danger btn-sm delete-btn" data-delete-id=${task.id}>delete</button>
+            </div>
           </div>
         </div>`;
     });
@@ -34,6 +37,9 @@ const printDone = (taskArray) => {
             <div class="form-check form-check-inline">
               <input class="form-check-input is-completed-checkbox" type="checkbox" id="${task.id}" checked>
               <label class="form-check-label" for="inlineCheckbox1">Done</label>
+            </div>
+            <div>
+              <button class="btn btn-danger btn-sm delete-btn" data-delete-id=${task.id}>delete</button>
             </div>
           </div>
         </div>`;
@@ -83,8 +89,21 @@ const updateIsCompleted = (e) => {
     });
 };
 
+const deleteTask = (e) => {
+  const idToDelete = e.target.dataset.deleteId;
+  tasksData.deleteTask(idToDelete)
+    .then(() => {
+      tasksPage();
+      donePage();
+    })
+    .catch((error) => {
+      console.error('error in deleting friend', error);
+    });
+};
+
 const bindEvents = () => {
   $('body').on('change', '.is-completed-checkbox', updateIsCompleted);
+  $('body').on('click', '.delete-btn', deleteTask);
 };
 
 const initializeTasksPage = () => {
